@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  // transpilePackages: ['db'],
+  experimental: {
+    typedRoutes: true,
+  },
+}
 
-export default nextConfig;
+export default nextConfig

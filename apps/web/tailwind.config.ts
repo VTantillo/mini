@@ -1,4 +1,7 @@
+import containerQueries from '@tailwindcss/container-queries'
+import forms from '@tailwindcss/forms'
 import type { Config } from 'tailwindcss'
+import animatePlugin from 'tailwindcss-animate'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
 const config = {
@@ -78,7 +81,7 @@ const config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [containerQueries, forms, animatePlugin],
 } satisfies Config
 
 export default config
