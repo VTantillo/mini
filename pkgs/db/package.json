@@ -17,11 +17,13 @@
   "license": "ISC",
   "dependencies": {
     "better-sqlite3": "^9.4.3",
+    "date-fns": "^3.5.0",
     "drizzle-orm": "^0.30.2",
     "drizzle-zod": "^0.5.1",
     "ulid": "^2.3.0"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
     "@types/node": "^20",
     "drizzle-kit": "^0.20.14",
     "tsx": "^4.7.1",

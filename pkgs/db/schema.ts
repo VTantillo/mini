@@ -28,3 +28,24 @@ export const dbUser = sqliteTable(
 export type User = typeof dbUser.$inferSelect
 export type NewUser = typeof dbUser.$inferInsert
 export const insertUserSchema = createInsertSchema(dbUser)
+
+export const dbSession = sqliteTable('session', {
+  sessionToken: text('session_token').primaryKey().notNull(),
+  userId: text('user_id')
+    .references(() => dbUser.id, {
+      onDelete: 'cascade',
+    })
+    .notNull(),
+  issuedAt: integer('issued_at', { mode: 'timestamp' })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  revokedAt: integer('revoked_at', { mode: 'timestamp' }).$defaultFn(
+    () => new Date(),
+  ),
+  expiresAt: integer('expires_at', { mode: 'timestamp' }).$defaultFn(
+    () => new Date(),
+  ),
+})
+export type Session = typeof dbSession.$inferSelect
+export type NewSession = typeof dbSession.$inferInsert
+export const insertSessionSchema = createInsertSchema(dbSession)
