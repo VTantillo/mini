@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // transpilePackages: ['db'],
+  transpilePackages: ['db'],
   experimental: {
     typedRoutes: true,
   },

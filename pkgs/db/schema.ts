@@ -39,12 +39,8 @@ export const dbSession = sqliteTable('session', {
   issuedAt: integer('issued_at', { mode: 'timestamp' })
     .$defaultFn(() => new Date())
     .notNull(),
-  revokedAt: integer('revoked_at', { mode: 'timestamp' }).$defaultFn(
-    () => new Date(),
-  ),
-  expiresAt: integer('expires_at', { mode: 'timestamp' }).$defaultFn(
-    () => new Date(),
-  ),
+  revokedAt: integer('revoked_at', { mode: 'timestamp' }),
+  expiresAt: integer('expires_at', { mode: 'timestamp' }),
 })
 export type Session = typeof dbSession.$inferSelect
 export type NewSession = typeof dbSession.$inferInsert
