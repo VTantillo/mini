@@ -6,8 +6,6 @@ export default async function Dashboard() {
   const token = getSessionToken()
   const user = await getActiveSessionUser(token)
 
-  console.log(user)
-
   return (
     <main className={cn('container space-y-2')}>
       <h1 className={cn('text-3xl')}>Hello, {user ? user.username : 'User'}</h1>
